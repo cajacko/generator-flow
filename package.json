@@ -2,11 +2,7 @@
   "name": "generator-flow",
   "version": "1.0.0",
   "description": "Yeoman generator for adding flow type",
-  "author": {
-    "name": "Charlie Jackson",
-    "email": "contact@charliejackson.com",
-    "url": "https://charliejackson.com"
-  },
+  "author": "Charlie Jackson <contact@charliejackson.com> (https://charliejackson.com)",
   "license": "MIT",
   "keywords": [
     "javascript",
@@ -14,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/cajacko/generator-flow.git"
+    "url": "git+https://github.com/cajacko/generator-flow.git"
   },
   "homepage": "https://github.com/cajacko/generator-flow#readme",
   "scripts": {
@@ -28,8 +24,8 @@
     "node": ">=6.9.1"
   },
   "bugs": {
-    "email": "contact@charliejackson.com",
-    "url": "https://github.com/cajacko/generator-flow/issues"
+    "url": "https://github.com/cajacko/generator-flow/issues",
+    "email": "contact@charliejackson.com"
   },
   "files": [
     "generators"
@@ -41,5 +37,13 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.0"
-  }
+  },
+  "dependencies": {
+    "check-out-of-date-packages": "1.1.2",
+    "npm-add-script": "1.1.0",
+    "npm-check": "5.4.0",
+    "winston": "2.3.1",
+    "yeoman-generator": "1.1.0"
+  },
+  "main": "index.js"
 }
