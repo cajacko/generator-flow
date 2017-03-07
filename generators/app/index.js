@@ -1,14 +1,14 @@
 const Generator = require('yeoman-generator');
-// const path = require('path');
-// const checkOutOfDatePackages = require('check-out-of-date-packages');
+const path = require('path');
+const checkOutOfDatePackages = require('check-out-of-date-packages');
 const winston = require('winston');
 const npmAddScript = require('npm-add-script');
 
 module.exports = class extends Generator {
-  // initializing() {
-  //   const cwd = path.join(__dirname, '../../');
-  //   return checkOutOfDatePackages(cwd, 'Charlie Jackson');
-  // }
+  initializing() {
+    const cwd = path.join(__dirname, '../../');
+    return checkOutOfDatePackages(cwd, 'Charlie Jackson');
+  }
 
   writing() {
     this.fs.copy(
@@ -37,7 +37,11 @@ module.exports = class extends Generator {
     winston.log('debug', 'packageJson', packageJson);
 
     if (!packageJson.scripts || !packageJson.scripts.flow) {
-      npmAddScript({ key: 'flow', value: 'flow' });
+      npmAddScript({ key: 'flow', value: 'flowcheck' });
+    }
+
+    if (!packageJson.scripts || !packageJson.scripts['flow:skip']) {
+      npmAddScript({ key: 'flow:check', value: 'flowcheck check --skip-check' });
     }
 
     winston.log('debug', 'packageJson', packageJson);
@@ -46,7 +50,7 @@ module.exports = class extends Generator {
   }
 
   installPackages() {
-    this.npmInstall(['flow-bin'], { save: true });
+    this.npmInstall(['flow-check'], { save: true });
     this.npmInstall(['babel-cli'], { save: true });
     this.npmInstall(['babel-plugin-transform-flow-strip-types'], { save: true });
   }
