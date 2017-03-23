@@ -39,7 +39,7 @@
     "eslint-plugin-react": "6.10.0"
   },
   "dependencies": {
-    "check-out-of-date-packages": "1.1.2",
+    "check-out-of-date-packages": "*",
     "npm-add-script": "1.1.0",
     "npm-check": "5.4.0",
     "winston": "2.3.1",
